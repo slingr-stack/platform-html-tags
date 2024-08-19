@@ -1,0 +1,1 @@
+import "./slingr-icon/slingr-icon";
