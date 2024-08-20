@@ -1,6 +1,5 @@
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-const iconsUtils = require("icons-utils"); //This needs to be included in the config.helper as a dependency of the project 
 
 @customElement("slingr-icon")
 export class SlingrIcon extends LitElement {
@@ -8,7 +7,7 @@ export class SlingrIcon extends LitElement {
   @property({
     attribute: "name",
     converter: (name: string | null) => {
-      return name ? iconsUtils.getOldIconClass(name) : "";
+      return name ? `zmdi zmdi-${name.toLowerCase()}` : "";
     }
   })
   iconClass: string = "";

@@ -2,18 +2,9 @@ import typescript from "@rollup/plugin-typescript";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import filesize from "rollup-plugin-filesize";
 import { getBabelOutputPlugin } from "@rollup/plugin-babel";
-import copy from "rollup-plugin-copy";
 import minifyHTML from 'rollup-plugin-minify-html-literals';
 
 const pluginOptions = [
-  copy({
-    targets: [
-      {
-        src: "src/assets/*",
-        dest: "dist/assets",
-      },
-    ],
-  }),
   typescript(),
   minifyHTML.default(), //https://github.com/lit/lit/issues/4273
   nodeResolve(),
