@@ -5,9 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slingr Components</title>
     <script type="module" src="../src/app/slingr-icon/slingr-icon.ts"></script>
+    <script type="module" src="../src/app/slingr-link/slingr-link.ts"></script>
   </head>
   <body>
     <slingr-icon name="book" icon-style="primary"></slingr-icon>
+    <br>
     <slingr-icon icon-style="primary"></slingr-icon>
+    <br>
+    <slingr-link 
+      view-id="viewnamejuanse"
+      record-id="iddddddddd"
+      target="new"
+      filters='{"identifier":[{"use": "official","system": "urn:lumiradx:consult"}]}'
+      params='{"identifier":[{"use": "official","system": "urn:lumiradx:consult"}]}'
+    >
+      Google link
+  </slingr-link>
+    <br>
+    <slingr-link 
+      view-id="viewnamejuanse"
+      record-id="iddddddddd"
+      target="targe"
+      filters='{"identifier":[{"use": "official","system": "urn:lumiradx:consult"}]}'
+      params='{"identifier":[{"use": "official","system": "urn:lumiradx:consult"}]}'
+    >Internal link</slingr-link>
   </body>
 </html>
