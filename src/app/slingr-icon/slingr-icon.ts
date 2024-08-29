@@ -1,5 +1,6 @@
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { isValidStyle } from "../../utils/stylesUtils";
 
 @customElement("slingr-icon")
 export class SlingrIcon extends LitElement {
@@ -12,29 +13,17 @@ export class SlingrIcon extends LitElement {
   })
   iconClass: string = "";
 
-  @property({ attribute: "icon-style" })
+  @property({
+    attribute: "icon-style",
+    converter: (buttonStyle: string | null) => {
+      return isValidStyle(buttonStyle) ? buttonStyle : "default";
+    },
+  })
   iconStyle: string = "default";
-
-  getIconStyle() {
-    const styleClasses: any = {
-      default: "text-default",
-      primary: "text-primary",
-      secondary: "text-secondary",
-      info: "text-info",
-      success: "text-success",
-      danger: "text-danger",
-      warning: "text-warning",
-    };
-    return styleClasses[this.iconStyle] || styleClasses["default"];
-  }
-
-  getIconClasses() {
-    return `${this.iconClass} ${this.getIconStyle()}`;
-  }
 
   protected render() {
     return this.iconClass
-      ? html`<i class=${this.getIconClasses()}></i>`
+      ? html`<i class="${this.iconClass} text-${this.iconStyle}"></i>`
       : html`Icon name must be provided`;
   }
 

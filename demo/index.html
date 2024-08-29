@@ -6,28 +6,42 @@
     <title>Slingr Components</title>
     <script type="module" src="../src/app/slingr-icon/slingr-icon.ts"></script>
     <script type="module" src="../src/app/slingr-link/slingr-link.ts"></script>
+    <script
+      type="module"
+      src="../src/app/slingr-action/slingr-action.ts"
+    ></script>
   </head>
   <body>
     <slingr-icon name="book" icon-style="primary"></slingr-icon>
-    <br>
+    <br />
     <slingr-icon icon-style="primary"></slingr-icon>
-    <br>
-    <slingr-link 
-      view-id="viewnamejuanse"
+    <br />
+    <slingr-link
+      view="viewnamejuanse"
       record-id="iddddddddd"
       target="new"
       filters='{"identifier":[{"use": "official","system": "urn:lumiradx:consult"}]}'
       params='{"identifier":[{"use": "official","system": "urn:lumiradx:consult"}]}'
     >
       Google link
-  </slingr-link>
-    <br>
-    <slingr-link 
-      view-id="viewnamejuanse"
+    </slingr-link>
+    <br />
+    <slingr-link
+      view="viewnamejuanse"
       record-id="iddddddddd"
       target="targe"
       filters='{"identifier":[{"use": "official","system": "urn:lumiradx:consult"}]}'
       params='{"identifier":[{"use": "official","system": "urn:lumiradx:consult"}]}'
-    >Internal link</slingr-link>
+      >Internal link</slingr-link
+    >
+    <br />
+
+    <slingr-action
+      label="Juansee"
+      entity="test"
+      action="test2"
+      record-ids="123"
+      display-type="buttonssdddd"
+    ></slingr-action>
   </body>
 </html>
