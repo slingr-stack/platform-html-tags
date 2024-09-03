@@ -1,9 +1,7 @@
 import { html, LitElement, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-type TargetType = "self" | "new" | "modal";
-
-@customElement("slingr-link")
+@customElement("slingr-file")
 export class SlingrIcon extends LitElement {
   static styles = css`
     a {
@@ -17,42 +15,30 @@ export class SlingrIcon extends LitElement {
     }
   `;
   @property()
-  view: string = "";
+  entity: string = "";
 
   @property({ attribute: "record-id" })
   recordId: string = "";
 
-  @property({
-    attribute: "target",
-    converter: (target: string | null) => {
-      if (target !== "modal" && target !== "new" && target !== "self") {
-        return "self";
-      } else {
-        return target;
-      }
-    },
-  })
-  target: TargetType = "self";
+  @property({ attribute: "file-id" })
+  fileId: string = "";
 
-  @property({ type: Object })
-  filters: { [key in string]: string } = {};
-
-  @property({ type: Object })
-  params: { [key in string]: string } = {};
+  @property({ attribute: "file-action" })
+  fileAction: string = "";
 
   manageClick() {
-    const myEvent = new CustomEvent("slingr-tag-navigate", {
+    const myEvent = new CustomEvent("slingr-tag-file", {
       detail: {
-        view: this.view,
+        fileEntity: this.entity,
         recordId: this.recordId,
-        filters: this.filters,
-        params: this.params,
-        target: this.target,
+        fileId: this.fileId,
+        fileAction: this.fileAction,
       },
       bubbles: true,
       composed: true,
     });
     this.dispatchEvent(myEvent);
+    
   }
 
   protected render() {
