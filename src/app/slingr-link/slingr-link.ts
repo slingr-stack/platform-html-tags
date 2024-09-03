@@ -5,7 +5,7 @@ import { isValidId, objectToUrlParams } from "../../utils/globalUtils";
 type TargetType = "self" | "new" | "modal";
 
 @customElement("slingr-link")
-export class SlingrIcon extends LitElement {
+export class SlingrLink extends LitElement {
   static styles = css`
     a {
       text-decoration: none;

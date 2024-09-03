@@ -2,7 +2,7 @@ import { LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 @customElement("slingr-tooltip")
-export class SlingrIcon extends LitElement {
+export class SlingrTooltip extends LitElement {
   @property()
   message: string = "";
 

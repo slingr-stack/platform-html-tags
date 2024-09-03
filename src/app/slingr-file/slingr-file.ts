@@ -2,7 +2,7 @@ import { html, LitElement, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 @customElement("slingr-file")
-export class SlingrIcon extends LitElement {
+export class SlingrFile extends LitElement {
   static styles = css`
     a {
       cursor: pointer;

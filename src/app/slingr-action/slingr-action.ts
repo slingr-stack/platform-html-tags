@@ -4,7 +4,7 @@ import "../slingr-button/slingr-button";
 import "../slingr-icon/slingr-icon";
 
 @customElement("slingr-action")
-export class SlingrIcon extends LitElement {
+export class SlingrAction extends LitElement {
   static styles = css`
     a {
       cursor: pointer;
