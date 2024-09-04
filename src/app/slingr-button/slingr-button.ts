@@ -12,6 +12,9 @@ export class slingrButton extends LitElement {
   icon: string = "";
 
   @property()
+  target: string = "";
+
+  @property()
   href: string = "";
 
   @property({
@@ -25,7 +28,7 @@ export class slingrButton extends LitElement {
   render() {
     return this.href
       ? html`
-          <a class="btn btn-${this.buttonStyle}" href="${this.href}">
+          <a class="btn btn-${this.buttonStyle}" href="${this.href}" target="${this.target}">
             <div class="btnContent">
               ${this.icon
                 ? html`<slingr-icon name=${this.icon}></slingr-icon>`
