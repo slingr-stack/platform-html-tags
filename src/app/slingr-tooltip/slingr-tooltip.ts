@@ -17,6 +17,7 @@ export class SlingrTooltip extends LitElement {
     if(!(<any>window).$) return;
     (<any>window).$(this).tooltip({
       container: "body",
+      html: true,
       title: this.message,
       placement: this.position,
     });
