@@ -7,12 +7,6 @@ export class SlingrLabel extends LitElement {
     labelStyle: string = 'default';
 
     @property()
-    href: string = '';
-
-    @property()
-    target: string = '_self';
-
-    @property()
     text: string = '';
 
     protected createRenderRoot() {
@@ -21,18 +15,7 @@ export class SlingrLabel extends LitElement {
 
     render() {
         const labelClass = `label label-${this.labelStyle}`;
-        return this.href
-            ? html`
-          <a
-            class="${labelClass} clickable"
-            href="${this.href}"
-            target="${this.target}"
-            >
-            <u>${this.text}</u>
-            <i class="zmdi zmdi-open-in-new"></i>
-          </a>
-        `
-            : html`
+        return html`
           <span class="${labelClass}">
             ${this.text}
           </span>
