@@ -32,6 +32,9 @@ export class SlingrAction extends LitElement {
   @property({ type: Object })
   defaultParams: { [key in string]: string } = {};
 
+  @property({attribute: "record-id"})
+  recordId: string = "";
+
   @property({
     attribute: "record-ids",
     type: Array,
@@ -56,7 +59,7 @@ export class SlingrAction extends LitElement {
       detail: {
         entity: this.entity,
         action: this.action,
-        recordIds: this.recordIds,
+        recordIds: this.recordId || this.recordIds,
         defaultParams: this.defaultParams
       },
       bubbles: true,
