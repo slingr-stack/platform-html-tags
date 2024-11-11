@@ -59,7 +59,7 @@ export class SlingrAction extends LitElement {
       detail: {
         entity: this.entity,
         action: this.action,
-        recordIds: this.recordId || this.recordIds,
+        recordIds: this.recordId ? [this.recordId] : this.recordIds,
         defaultParams: this.defaultParams
       },
       bubbles: true,
