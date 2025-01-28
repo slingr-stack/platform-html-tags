@@ -39,6 +39,7 @@ export class slingrButton extends LitElement {
         `
       : html`
           <button
+            type="button"
             class="slingr__button btn btn-${this
               .buttonStyle} waves-effect waves-button"
           >
