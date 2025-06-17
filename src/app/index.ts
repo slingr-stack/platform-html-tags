@@ -5,3 +5,4 @@ import "./slingr-action/slingr-action";
 import "./slingr-tooltip/slingr-tooltip";
 import "./slingr-file/slingr-file";
 import "./slingr-label/slingr-label";
+import "./slingr-interaction/slingr-interaction";
