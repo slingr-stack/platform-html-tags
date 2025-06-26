@@ -27,7 +27,7 @@ export class SlingrInteraction extends LitElement {
   interaction: string = "";
 
   @property({
-    attribute: 'defaultParams',
+    attribute: 'default-params',
     converter: {
       fromAttribute: (value: string | null) => {
         if (!value) return {};
