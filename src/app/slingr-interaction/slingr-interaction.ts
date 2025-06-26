@@ -26,11 +26,21 @@ export class SlingrInteraction extends LitElement {
   @property()
   interaction: string = "";
 
-  @property({ type: Object })
-  defaultParams: { [key in string]: string } = {};
-
-  @property({attribute: "record-id"})
-  recordId: string = "";
+  @property({
+    attribute: 'defaultParams',
+    converter: {
+      fromAttribute: (value: string | null) => {
+        if (!value) return {};
+        try {
+          return JSON.parse(value);
+        } catch (e) {
+          console.error('Error parsing defaultParams:', value, e);
+          return {};
+        }
+      }
+    }
+  })
+  defaultParams: { [key: string]: string } = {};
 
   @property({
     attribute: "__context",
@@ -48,19 +58,6 @@ export class SlingrInteraction extends LitElement {
   })
   context: { [key: string]: string } = {};
 
-  @property({
-    attribute: "record-ids",
-    type: Array,
-    converter: (recordIds: string | null) => {
-      let ids: Array<string> = [];
-      if (typeof recordIds === "string") {
-        ids = recordIds.split(",");
-      }
-      return ids;
-    },
-  })
-  recordIds: Array<string> = [];
-
   @property({ attribute: "display-type" })
   displayType: "button" | "link" = "button";
 
@@ -71,8 +68,8 @@ export class SlingrInteraction extends LitElement {
     let myEvent = new CustomEvent("slingr-tag-interaction", {
       detail: {
         interaction: this.interaction,
-        recordIds: this.recordId ? [this.recordId] : this.recordIds,
-        context: this.context
+        context: this.context,
+        defaultParams: this.defaultParams
       },
       bubbles: true,
       composed: true,
