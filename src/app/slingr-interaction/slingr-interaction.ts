@@ -72,7 +72,8 @@ export class SlingrInteraction extends LitElement {
       detail: {
         interaction: this.interaction,
         context: this.context,
-        defaultParams: this.defaultParams
+        defaultParams: this.defaultParams,
+        autoExecute: this.autoExecute
       },
       bubbles: true,
       composed: true,
