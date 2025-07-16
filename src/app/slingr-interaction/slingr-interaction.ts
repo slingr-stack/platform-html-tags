@@ -26,6 +26,9 @@ export class SlingrInteraction extends LitElement {
   @property()
   interaction: string = "";
 
+  @property({ type: Boolean, attribute: 'auto-execute' })
+  autoExecute: boolean = false;
+
   @property({
     attribute: 'default-params',
     converter: {
